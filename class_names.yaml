@@ -1,0 +1,21 @@
+classes:
+    - 01-static-checking
+    - 02-testing
+    - 03-code-review
+    - 04-specifications
+    - 05-designing-specs
+    - 06-abstract-data-types
+    - 07-abstraction-functions-rep-invariants
+    - 08-interfaces-subtyping
+    - 09-functional-programming
+    - 10-equality
+    - 11-recursive-data-types
+    - 12-grammars-parsing
+    - 13-debugging
+    - 14-concurrency
+    - 15-promises
+    - 16-mutual-exclusion
+    - 17-callbacks-guis
+    - 18-message-passing-networking
+    - 19-little-languages
+    - 20-conclusion
