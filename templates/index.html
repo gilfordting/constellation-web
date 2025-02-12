@@ -31,6 +31,17 @@
                 margin-bottom: 30px;
                 text-align: center;
                 font-size: 2.5em;
+                animation: bounce 1s infinite;
+            }
+
+            @keyframes bounce {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
             }
 
             h1 span {
@@ -88,6 +99,19 @@
                 box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
             }
 
+            /* Add some fun hover effects */
+            select:hover {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🎯</text></svg>")
+                        16 0,
+                    auto;
+            }
+
+            input:hover {
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✍️</text></svg>")
+                        16 0,
+                    auto;
+            }
+
             .button-group {
                 display: flex;
                 gap: 10px;
@@ -108,7 +132,20 @@
 
             button:hover {
                 background-color: #2980b9;
-                transform: translateY(-1px);
+                transform: translateY(-1px) rotate(1deg);
+                animation: wiggle 0.5s infinite;
+            }
+
+            @keyframes wiggle {
+                0% {
+                    transform: rotate(-2deg);
+                }
+                50% {
+                    transform: rotate(2deg);
+                }
+                100% {
+                    transform: rotate(-2deg);
+                }
             }
 
             #result {
@@ -134,10 +171,23 @@
 
             .copy-button {
                 background-color: #27ae60;
+                transition: all 0.2s ease;
             }
 
             .copy-button:hover {
                 background-color: #219a52;
+                transform: scale(1.1);
+                animation: pop 0.3s ease-in-out infinite;
+            }
+
+            @keyframes pop {
+                0%,
+                100% {
+                    transform: scale(1.1);
+                }
+                50% {
+                    transform: scale(0.95);
+                }
             }
 
             /* Flatpickr customization */
@@ -194,7 +244,7 @@
                 />
             </div>
             <div class="form-group">
-                <label>🕒 Select DateTime:</label>
+                <label>🕒 Timestamp:</label>
                 <input
                     type="text"
                     id="datetime"
