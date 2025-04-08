@@ -24,7 +24,7 @@ def generate_url():
     timestamp = data.get("timestamp") or datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
     base_url = "https://constellation.mit.edu/dashboard"
-    url = f"{base_url}/ic{project}/m/{milestone}/{timestamp}"
+    url = f"{base_url}/{project}/m/{milestone}/{timestamp}"
     if path:
         url += f"/{path}"
 

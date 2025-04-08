@@ -256,6 +256,15 @@
                 />
             </div>
             <div class="form-group">
+                <label>⏱️ Seconds from now:</label>
+                <input
+                    type="number"
+                    id="seconds"
+                    placeholder="Enter number of seconds"
+                    min="0"
+                />
+            </div>
+            <div class="form-group">
                 <label>📝 Rubric Text:</label>
                 <textarea
                     id="rubric"
@@ -269,6 +278,9 @@
                 </button>
                 <button onclick="generateUrl('current')">
                     ⚡ Generate with Current Time
+                </button>
+                <button onclick="generateUrl('seconds')">
+                    ⏱️ Generate Seconds from Now
                 </button>
             </div>
             <div id="result">
@@ -301,10 +313,19 @@
                 const milestone = document.getElementById("milestone").value;
                 const path = document.getElementById("path").value;
                 const rubric = document.getElementById("rubric").value;
-                const timestamp =
-                    timeType === "custom"
-                        ? document.getElementById("datetime").value
-                        : null;
+                let timestamp = null;
+
+                if (timeType === "custom") {
+                    timestamp = document.getElementById("datetime").value;
+                } else if (timeType === "seconds") {
+                    const seconds =
+                        parseInt(document.getElementById("seconds").value) || 0;
+                    const futureDate = new Date();
+                    futureDate.setSeconds(futureDate.getSeconds() + seconds);
+                    timestamp = futureDate
+                        .toLocaleString("sv")
+                        .replace(" ", "T");
+                }
 
                 const response = await fetch("/generate", {
                     method: "POST",
